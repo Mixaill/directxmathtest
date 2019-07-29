@@ -387,7 +387,11 @@ extern const uint32_t g_dwPhysicalAttribs;
 inline void printmatrixe(const DirectX::XMMATRIX& ma)
 {
     float m[4][4];
+    #ifdef __GNUC__
+    memcpy( &m, &ma, sizeof(DirectX::XMMATRIX) );
+    #else
     memcpy_s( &m, sizeof(float) * 16, &ma, sizeof(DirectX::XMMATRIX) );
+    #endif
     printe ("%f %f %f %f\n %f %f %f %f\n %f %f %f %f\n %f %f %f %f\n",
             m[0][0],m[0][1],m[0][2],m[0][3],
             m[1][0],m[1][1],m[1][2],m[1][3],
@@ -398,7 +402,12 @@ inline void printmatrixe(const DirectX::XMMATRIX& ma)
 inline void printmatrixi(const DirectX::XMMATRIX& ma)
 {
     float m[4][4];
+    #ifdef __GNUC__
+    memcpy( &m, &ma, sizeof(DirectX::XMMATRIX) );
+    #else
     memcpy_s( &m, sizeof(float) * 16, &ma, sizeof(DirectX::XMMATRIX) );
+    #endif
+
     printi ("%f %f %f %f\n %f %f %f %f\n %f %f %f %f\n %f %f %f %f\n",
             m[0][0],m[0][1],m[0][2],m[0][3],
             m[1][0],m[1][1],m[1][2],m[1][3],

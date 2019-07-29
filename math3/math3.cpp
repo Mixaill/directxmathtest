@@ -128,11 +128,15 @@ HRESULT __stdcall Initialize(void)
 
     //  MapDrive('C', "\\Device\\Harddisk0\\Partition1");
 
+    #ifdef __GNUC__
+    sprintf (filename, DATAPATH "math2.dat");
+    #else
     sprintf_s (filename, DATAPATH "math2.dat");
+    #endif
 
-    FILE* f=nullptr;
+    FILE* f= fopen(filename, "rt");
     int i;
-    if( fopen_s(&f, filename, "rt") )
+    if(f == nullptr)
     {
         PRINT("Warning: Couldn't open %s. f==0\nAssuming ALL tests\n", filename);
         for(i = 0; i < MAXTESTS; i++) {
@@ -146,7 +150,7 @@ HRESULT __stdcall Initialize(void)
         bool bKeepReading = true;
         while(bKeepReading) {
             int num[3]={0,0,0};
-            int ret = fscanf_s(f, "%d", &num[0]);
+            int ret = fscanf(f, "%d", &num[0]);
             if(ret == 0) {
                 break;
             } else if (ret == EOF) {
@@ -165,7 +169,7 @@ HRESULT __stdcall Initialize(void)
                     PRINT("-1: Adding all tests\n");
                     break;
                 case -2:
-                    fscanf_s(f, "%d %d", &num[1], &num[2]);
+                    fscanf(f, "%d %d", &num[1], &num[2]);
                     for(i = num[1]; i <= num[2]; i++) {
                         bRunTest[i] = TRUE;
                     }
@@ -173,7 +177,7 @@ HRESULT __stdcall Initialize(void)
                     break;
                 case -3:
                     //DebugBreak();
-                    fscanf_s(f, "%s", str, 256);
+                    fscanf(f, "%s", str);
                     for(i = 0; i < MAXTESTS; i++) {
                         if(tests[i].name) {
                             if(strstr(tests[i].name, str)) {
@@ -186,7 +190,7 @@ HRESULT __stdcall Initialize(void)
                     break;
                 case -4:
                     //DebugBreak();
-                    fscanf_s(f, "%s", str, 256);
+                    fscanf(f, "%s", str);
                     for(i = 0; i < MAXTESTS; i++) {
                         if(tests[i].name) {
                             if(strstr(tests[i].name, str)) {
