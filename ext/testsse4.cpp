@@ -1,11 +1,10 @@
-#include <windows.h>
 #include <stdio.h>
 
 #include "DirectXMathSSE4.h"
 
 using namespace DirectX;
 
-void main()
+int main()
 {
     if ( XMVerifyCPUSupport() )
     {
@@ -16,4 +15,6 @@ void main()
     {
         printf("SSE4 supported\n");
     }
+
+    return 0;
 }
