@@ -151,6 +151,8 @@
 #define __stdcall __attribute__((stdcall))
 #endif
 
+#define RANDLIMIT (0x8000)
+
 #ifdef BUILD_FOR_HARNESS
     #include "h2.h"
 

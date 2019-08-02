@@ -84,7 +84,7 @@ HRESULT Test051(LogProxy* pLog)
     HRESULT ret = S_OK;
     for(j = 0; j < 16; j++) {
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);;
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -100,7 +100,7 @@ HRESULT Test051(LogProxy* pLog)
         }
         check = TRUE;
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);;
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -125,7 +125,7 @@ HRESULT Test052(LogProxy* pLog)
     HRESULT ret = S_OK;
     for(j = 0; j < 16; j++) {
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -142,7 +142,7 @@ HRESULT Test052(LogProxy* pLog)
 
         check = FALSE;
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -167,7 +167,7 @@ HRESULT Test053(LogProxy* pLog)
     HRESULT ret = S_OK;
     for(j = 0; j < 16; j++) {
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -183,7 +183,7 @@ HRESULT Test053(LogProxy* pLog)
         }
 
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -273,7 +273,7 @@ HRESULT Test056(LogProxy* pLog)
     HRESULT ret = S_OK;
     for(j = 0; j < 16; j++) {
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -289,7 +289,7 @@ HRESULT Test056(LogProxy* pLog)
         }
 
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -315,7 +315,7 @@ HRESULT Test057(LogProxy* pLog)
     HRESULT ret = S_OK;
     for(j = 0; j < 16; j++) {
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -331,7 +331,7 @@ HRESULT Test057(LogProxy* pLog)
         }
 
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -407,7 +407,7 @@ HRESULT Test060(LogProxy* pLog)
     HRESULT ret = S_OK;
     for(j = 0; j < 16; j++) {
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }
@@ -423,7 +423,7 @@ HRESULT Test060(LogProxy* pLog)
         }
 
         for(i = 0; i < 4; i++) {
-            float ftemp = (float)rand();
+            float ftemp = (float)(rand() % RANDLIMIT);
             v1.v = XMVectorSetByIndex(v1,ftemp,i);
             v2.v = XMVectorSetByIndex(v2,ftemp,i);
         }

@@ -1310,7 +1310,7 @@ HRESULT Test109(LogProxy* pLog)
     float angle;
     COMPARISON c;
 
-    v = XMVectorSet(((rand()/4000.f) + .1f),0,0,0);
+    v = XMVectorSet((((rand() % RANDLIMIT)/4000.f) + .1f),0,0,0);
     angle = 1.0f;
     check = XMMatrixRotationX(angle);
     m = XMMatrixRotationAxis(v, angle);
@@ -1323,7 +1323,7 @@ HRESULT Test109(LogProxy* pLog)
     } else {
         printi("%s: %d\n", TestName,c);
     }
-    v = XMVectorSet(0,((rand()/4000.f) + .1f),0,0);
+    v = XMVectorSet(0,(((rand() % RANDLIMIT)/4000.f) + .1f),0,0);
     angle = 2.0f;
     check = XMMatrixRotationY(angle);
     m = XMMatrixRotationAxis(v, angle);
@@ -1336,7 +1336,7 @@ HRESULT Test109(LogProxy* pLog)
     } else {
         printi("%s: %d\n", TestName,c);
     }
-    v = XMVectorSet(0,0,((rand()/4000.f) + .1f),0);
+    v = XMVectorSet(0,0,(((rand() % RANDLIMIT)/4000.f) + .1f),0);
     angle = 3.0f;
     check = XMMatrixRotationZ(angle);
     m = XMMatrixRotationAxis(v, angle);
@@ -1350,10 +1350,10 @@ HRESULT Test109(LogProxy* pLog)
         printi("%s: %d\n", TestName,c);
     }
     for(int k = 0; k < 10; k++) {
-        v = XMVectorSet(((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f);
-        angle = ((float)rand()) / 2000.f - 8.f;
+        v = XMVectorSet(((float)rand()) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f);
+        angle = ((float)(rand() % RANDLIMIT)) / 2000.f - 8.f;
         m = XMMatrixRotationAxis(v,angle);
-        XMVECTOR v1 = v * ((((float)rand()) / 8000.f)+.1f); 
+        XMVECTOR v1 = v * ((((float)(rand() % RANDLIMIT)) / 8000.f)+.1f);
         XMVECTOR r = XMVector4Transform(v1,m);
         c = CompareXMVECTOR(r,v1,4);
         if(c > WITHINBIGEPSILON) {
@@ -1367,7 +1367,7 @@ HRESULT Test109(LogProxy* pLog)
         } else {
             printi("%s: %d\n", TestName, c);	
         }
-        XMVECTOR v2 = XMVectorSet(((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f);
+        XMVECTOR v2 = XMVectorSet(((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f);
         r = XMVector4Transform(v2,m);
         float dot1,dot2;
         dot1 = XMVectorGetX(XMVector3Dot(v2, v1));
@@ -1454,12 +1454,12 @@ HRESULT Test110(LogProxy* pLog)
         printi("%s: %d\n", TestName,c);
     }
     for(int k = 0; k < 10; k++) {
-        v = XMVectorSet(((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f);
+        v = XMVectorSet(((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f);
         float blah = 1.f/sqrtf(XMVectorGetX(v)*XMVectorGetX(v)+XMVectorGetY(v)*XMVectorGetY(v)+XMVectorGetZ(v)*XMVectorGetZ(v));
         v *= blah;
-        angle = ((float)rand()) / 2000.f - 8.f;
+        angle = ((float)(rand() % RANDLIMIT)) / 2000.f - 8.f;
         m = XMMatrixRotationNormal(v,angle);
-        XMVECTOR v1 = v * ((((float)rand()) / 8000.f)+.1f); 
+        XMVECTOR v1 = v * ((((float)(rand() % RANDLIMIT)) / 8000.f)+.1f);
         XMVECTOR r = XMVector4Transform(v1,m);
         c = CompareXMVECTOR(r,v1,4);
         if(c > WITHINBIGEPSILON) {
@@ -1473,7 +1473,7 @@ HRESULT Test110(LogProxy* pLog)
         } else {
             printi("%s: %d\n", TestName, c);	
         }
-        XMVECTOR v2 = XMVectorSet(((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f);
+        XMVECTOR v2 = XMVectorSet(((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f);
         r = XMVector4Transform(v2,m);
         float dot1,dot2;
         dot1 = XMVectorGetX(XMVector3Dot(v2, v1));
@@ -1521,12 +1521,12 @@ HRESULT Test111(LogProxy* pLog)
     COMPARISON c;
     XMVECTOR q;
     for(int k = 0; k < 10; k++) {
-        v = XMVectorSet(((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f);
+        v = XMVectorSet(((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f);
         float vx=XMVectorGetX(v); float vy=XMVectorGetY(v); float vz=XMVectorGetZ(v); float vw=XMVectorGetW(v);
         float blah = 1.f/sqrtf(vx*vx+vy*vy+vz*vz);
         v *= blah;
         vx=XMVectorGetX(v); vy=XMVectorGetY(v); vz=XMVectorGetZ(v); vw=XMVectorGetW(v);
-        angle = ((float)rand()) / 2000.f - 8.f;
+        angle = ((float)(rand() % RANDLIMIT)) / 2000.f - 8.f;
         float si = sinf(angle/2.f);
         float co = cosf(angle/2.f);
         q = XMVectorSet(vx * si,vy * si,vz * si,co);
@@ -1541,7 +1541,7 @@ HRESULT Test111(LogProxy* pLog)
         } else {
             printi("%s: %d\n", TestName, c);
         }
-        XMVECTOR v1 = v * ((((float)rand()) / 8000.f)+.1f); 
+        XMVECTOR v1 = v * ((((float)(rand() % RANDLIMIT)) / 8000.f)+.1f);
         XMVECTOR r = XMVector4Transform(v1,m);
         c = CompareXMVECTOR(r,v1,4);
         if(c > WITHINBIGEPSILON) {
@@ -1554,7 +1554,7 @@ HRESULT Test111(LogProxy* pLog)
         } else {
             printi("%s: %d\n", TestName, c);	
         }
-        XMVECTOR v2 = XMVectorSet(((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f,((float)rand()) / 4000.f - 4.f);
+        XMVECTOR v2 = XMVectorSet(((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f,((float)(rand() % RANDLIMIT)) / 4000.f - 4.f);
         r = XMVector4Transform(v2,m);
         float dot1,dot2;
         dot1 = XMVectorGetX(XMVector3Dot(v2, v1));
@@ -1599,9 +1599,9 @@ HRESULT Test112(LogProxy* pLog)
     XMMATRIX m, check;
     for(int k = 0; k < 15; k++) {
         float y,p,r;
-        y = ((float)rand()) / 4000.f;
-        p = ((float)rand()) / 4000.f;
-        r = ((float)rand()) / 4000.f;
+        y = ((float)(rand() % RANDLIMIT)) / 4000.f;
+        p = ((float)(rand() % RANDLIMIT)) / 4000.f;
+        r = ((float)(rand() % RANDLIMIT)) / 4000.f;
         float cy, sy, cp, sp, cr, sr;
         sy = sinf(y); cy = cosf(y);
         sp = sinf(p); cp = cosf(p);
@@ -1629,9 +1629,9 @@ HRESULT Test113(LogProxy* pLog)
     XMMATRIX m, check;
     for(int k = 0; k < 15; k++) {
         float y,p,r;
-        y = ((float)rand()) / 4000.f;
-        p = ((float)rand()) / 4000.f;
-        r = ((float)rand()) / 4000.f;
+        y = ((float)(rand() % RANDLIMIT)) / 4000.f;
+        p = ((float)(rand() % RANDLIMIT)) / 4000.f;
+        r = ((float)(rand() % RANDLIMIT)) / 4000.f;
         float cy, sy, cp, sp, cr, sr;
         sy = sinf(y); cy = cosf(y);
         sp = sinf(p); cp = cosf(p);
